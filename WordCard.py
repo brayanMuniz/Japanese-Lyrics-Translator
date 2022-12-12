@@ -1,5 +1,5 @@
-from bs4 import BeautifulSoup
 from typing import List
+from bs4 import BeautifulSoup
 
 
 class WordCard:
@@ -11,6 +11,14 @@ class WordCard:
 
     def __repr__(self):
         return f' Word: {self.word}, \n Kana: {self.kana}, \n Def : {self.definitions}, \n Conj: {self.conjugation}\n'
+
+    def return_dict(self) -> dict:
+        return {
+            "word": self.word,
+            "kana": self.kana,
+            "definitions": self.definitions,
+            "conjugation": self.conjugation
+        }
 
     def get_word(self, gloss_div: str) -> str:
         soup = BeautifulSoup(gloss_div, "html.parser")
